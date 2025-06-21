@@ -39,8 +39,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Post-publish summary
-        run: echo "Image published as ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
+        run: echo "Image published as ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}"
