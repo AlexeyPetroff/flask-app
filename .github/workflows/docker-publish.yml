@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: alexeypetroff/flask-app
 
 jobs:
   build-and-push:
@@ -43,4 +43,4 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Post-publish summary
-        run: echo "Image published as ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}"
+        run: echo "Image published as ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
